@@ -52,10 +52,10 @@ endif
 augroup olympiad
   autocmd!
   if has('win32')
-    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:r.exe" && "%:r.exe"<CR>
+    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:p:r.exe" && "%:p:r.exe"<CR>
     autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python "%"<CR>
   else
-    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:r" && ./"%:r"<CR>
+    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:p:r" && "%:p:r"<CR>
     autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python3 "%"<CR>
   endif
   autocmd FileType c,cpp setlocal cindent
