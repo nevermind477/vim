@@ -1,4 +1,4 @@
-# vim-olympiad
+# vim
 
 Минимальный конфиг **Vim (не Neovim)** для олимпиад и школьных ПК:
 подсветка синтаксиса, нормальные отступы, автодополнение для **C++ и Python**,
@@ -18,21 +18,21 @@
 ### Windows (PowerShell)
 
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing https://raw.githubusercontent.com/nevermind477/vim-olympiad/main/install.ps1 -OutFile $env:TEMP\vim-olympiad.ps1; & $env:TEMP\vim-olympiad.ps1"
+powershell -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing https://raw.githubusercontent.com/nevermind477/vim/main/install.ps1 -OutFile $env:TEMP\vim-config.ps1; & $env:TEMP\vim-config.ps1"
 ```
 
 Полный конфиг — добавь `full` в конец:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing https://raw.githubusercontent.com/nevermind477/vim-olympiad/main/install.ps1 -OutFile $env:TEMP\vim-olympiad.ps1; & $env:TEMP\vim-olympiad.ps1 full"
+powershell -ExecutionPolicy Bypass -Command "iwr -UseBasicParsing https://raw.githubusercontent.com/nevermind477/vim/main/install.ps1 -OutFile $env:TEMP\vim-config.ps1; & $env:TEMP\vim-config.ps1 full"
 ```
 
 ### macOS / Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/nevermind477/vim-olympiad/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/nevermind477/vim/main/install.sh | bash
 # полный конфиг:
-curl -fsSL https://raw.githubusercontent.com/nevermind477/vim-olympiad/main/install.sh | bash -s full
+curl -fsSL https://raw.githubusercontent.com/nevermind477/vim/main/install.sh | bash -s full
 ```
 
 ### Без интернета (флешка)
@@ -155,7 +155,7 @@ nnoremap ; :
 `~/.vim/olympiad/` и добавляет в конец `~/.vimrc` (или `_vimrc`) две строки:
 
 ```vim
-" ===== vim-olympiad (min) =====
+" ===== vim (min) =====
 source ~/.vim/olympiad/vimrc.min
 ```
 

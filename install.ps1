@@ -12,7 +12,7 @@ param(
   [string]$Mode = 'min'
 )
 
-$raw  = 'https://raw.githubusercontent.com/nevermind477/vim-olympiad/main'
+$raw  = 'https://raw.githubusercontent.com/nevermind477/vim/main'
 $dest = Join-Path $HOME '.vim\olympiad'
 New-Item -ItemType Directory -Force -Path $dest | Out-Null
 
@@ -32,7 +32,7 @@ if ($local -and (Test-Path $local)) {
 }
 
 $line   = "source ~/.vim/olympiad/vimrc.$Mode"
-$header = '" ===== vim-olympiad (' + $Mode + ') ====='
+$header = '" ===== vim (' + $Mode + ') ====='
 $vimrc  = Join-Path $HOME '_vimrc'
 
 if (Test-Path $vimrc) {

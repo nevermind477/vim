@@ -16,7 +16,7 @@ case "$MODE" in
   *) echo "Использование: bash install.sh [min|full]" >&2; exit 1 ;;
 esac
 
-RAW="https://raw.githubusercontent.com/nevermind477/vim-olympiad/main"
+RAW="https://raw.githubusercontent.com/nevermind477/vim/main"
 DEST="$HOME/.vim/olympiad"
 VIMRC="$HOME/.vimrc"
 LINE="source ~/.vim/olympiad/vimrc.$MODE"
@@ -44,11 +44,11 @@ if [ -f "$VIMRC" ]; then
   if grep -qF "$LINE" "$VIMRC"; then
     echo "В ~/.vimrc уже есть нужная строка — обновил только файл конфига."
   else
-    printf '\n" ===== vim-olympiad (%s) =====\n%s\n' "$MODE" "$LINE" >> "$VIMRC"
+    printf '\n" ===== vim (%s) =====\n%s\n' "$MODE" "$LINE" >> "$VIMRC"
     echo "Дописал в ~/.vimrc: $LINE"
   fi
 else
-  printf '" ===== vim-olympiad (%s) =====\n%s\n' "$MODE" "$LINE" > "$VIMRC"
+  printf '" ===== vim (%s) =====\n%s\n' "$MODE" "$LINE" > "$VIMRC"
   echo "Создал ~/.vimrc"
 fi
 

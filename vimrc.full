@@ -1,6 +1,6 @@
 " ============================================================================
 "  vimrc.full — Vim (не Neovim) для олимпиад и школы. Без плагинов.
-"  https://github.com/nevermind477/vim-olympiad
+"  https://github.com/nevermind477/vim
 "  macOS/Linux:  bash install.sh full
 "  Windows:      powershell -ExecutionPolicy Bypass -File install.ps1 full
 " ============================================================================
