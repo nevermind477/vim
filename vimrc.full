@@ -1,0 +1,67 @@
+" ============================================================================
+"  vimrc.full — Vim (не Neovim) для олимпиад и школы. Без плагинов.
+"  https://github.com/nevermind477/vim-olympiad
+"  macOS/Linux:  bash install.sh full
+"  Windows:      powershell -ExecutionPolicy Bypass -File install.ps1 full
+" ============================================================================
+scriptencoding utf-8
+
+" --- база -------------------------------------------------------------------
+set nocompatible
+syntax on
+filetype plugin indent on
+
+" --- внешний вид ------------------------------------------------------------
+set number ruler showcmd laststatus=2
+set cursorline scrolloff=5 nowrap
+set wildmenu wildmode=longest:full,full
+set showmatch matchtime=1
+set belloff=all noswapfile
+set shortmess+=I
+
+" --- кодировки (важно на школьных Windows-ПК) -------------------------------
+if &encoding !=# 'utf-8'
+  set encoding=utf-8
+endif
+set fileformats=unix,dos
+
+" --- отступы (Python и C++ одинаково удобно) --------------------------------
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set autoindent smartindent shiftround
+set backspace=indent,eol,start
+
+" --- поиск ------------------------------------------------------------------
+set incsearch ignorecase smartcase hlsearch
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" --- автодополнение ---------------------------------------------------------
+" <C-l> — умное (omni) дополнение: C++ (ccomplete) и Python (python3complete).
+" <C-n> — слова из текущего файла, встроено в vim, мапить не нужно.
+" omnifunc ниже — запасной вариант для сборок vim без +python3 и для Vim 8.
+set omnifunc=syntaxcomplete#Complete
+inoremap <C-l> <C-x><C-o>
+set completeopt=menuone,noinsert
+set pumheight=10
+
+" --- буфер обмена, если сборка vim это умеет ---------------------------------
+if has('clipboard')
+  set clipboard=unnamedplus
+endif
+
+" --- F5: сохранить, собрать и запустить -------------------------------------
+augroup olympiad
+  autocmd!
+  if has('win32')
+    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:r.exe" && "%:r.exe"<CR>
+    autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python "%"<CR>
+  else
+    autocmd FileType c,cpp nnoremap <buffer> <F5> :w<CR>:!g++ -std=c++17 -O2 -Wall "%" -o "%:r" && ./"%:r"<CR>
+    autocmd FileType python nnoremap <buffer> <F5> :w<CR>:!python3 "%"<CR>
+  endif
+  autocmd FileType c,cpp setlocal cindent
+augroup END
+
+" --- мелочи -----------------------------------------------------------------
+set path+=.,include
+set suffixesadd+=.h,.hpp
+nnoremap ; :

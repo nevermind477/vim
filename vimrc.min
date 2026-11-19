@@ -1,0 +1,10 @@
+" vimrc.min — 10 строк для олимпиад. Обычный vim (не neovim).
+syntax on
+filetype plugin indent on
+set number ruler showcmd noswapfile
+set backspace=indent,eol,start
+set tabstop=4 shiftwidth=4 expandtab smartindent
+set incsearch ignorecase smartcase hlsearch wildmenu mouse=a
+set omnifunc=syntaxcomplete#Complete
+inoremap <C-l> <C-x><C-o>
+nnoremap ; :
